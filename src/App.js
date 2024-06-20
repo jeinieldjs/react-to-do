@@ -10,6 +10,12 @@ function App() {
     setTasks((prevTasks) => [...prevTasks, newTask])
   }
   // tasks.push(newTask) will not work!
+  
+  const handleDelete = (id) => {
+    setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id))
+  }
+
+
   return (
     <div className="App">
       
@@ -17,7 +23,7 @@ function App() {
       <AddTask handleAddTasks = {handleTasks} newId={tasks.length} />
       {
         tasks.map((task) => {
-          return <div key={task.id}>{task.task}<button>Delete</button></div>
+          return <div key={task.id}>{task.task} <button onClick={() => handleDelete(task.id)}><i class="fa-solid fa-trash"></i></button></div>
         })
       }
    
