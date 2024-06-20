@@ -12,13 +12,15 @@ function App() {
   // tasks.push(newTask) will not work!
   return (
     <div className="App">
-     <h1>Things To Do</h1>
-     {
-      tasks.map((task) => {
-        return <div key={task.id}>{task.task}</div>
-      })
-     }
-    <AddTask handleAddTasks = {handleTasks} newId={tasks.length} />
+      
+      <h1>Things To Do</h1>
+      <AddTask handleAddTasks = {handleTasks} newId={tasks.length} />
+      {
+        tasks.map((task) => {
+          return <div key={task.id}>{task.task}<button>Delete</button></div>
+        })
+      }
+   
     </div>
   );
 }
