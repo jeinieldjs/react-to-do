@@ -3,18 +3,17 @@ import './App.css';
 import data from './assets/tasks.json';
 
 function App() {
+
+  const [tasks, setTasks] = useState(data) // since initial value nya si data
   return (
     <div className="App">
      <h1>Things To Do</h1>
      {
-      data.map((task) => {
-        return <div>
-          <ul>
-            <li key={task.id}>{task.task}</li>
-          </ul>
-        </div>
+      tasks.map((task) => {
+        return <div key={task.id}>{task.task}</div>
       })
      }
+    
     </div>
   );
 }
